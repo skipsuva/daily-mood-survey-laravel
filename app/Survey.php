@@ -6,23 +6,28 @@ use Illuminate\Database\Eloquent\Model;
 
 class Survey extends Model
 {
-    public function question_one_content()
-    {
-      return "How happy are you feeling today?";
-    }
+  // need to add user_id
+  protected $fillable = [
+    'user_id','question_1_response', 'question_2_response', 'question_3_response', 'question_4_response', 'time_taken'
+  ];
 
-    public function question_two_content()
-    {
-      return "How well did you sleep last night?";
-    }
+  public function questionOneContent()
+  {
+    return "How happy are you feeling today?";
+  }
 
-    public function question_three_content()
-    {
-      return "How likely are you to see a friend today?";
-    }
+  public function questionTwoContent()
+  {
+    return "How well did you sleep last night?";
+  }
 
-    public function question_four_content()
-    {
-      return "How pleased are your with your diet today?";
-    }
+  public function questionThreeContent()
+  {
+    return "How likely are you to see a friend today?";
+  }
+
+  public function questionFourContent()
+  {
+    return "How pleased are your with your diet today?";
+  }
 }

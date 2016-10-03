@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/daily-survey', 'SurveysController@NewSurvey');
+Route::get('/daily-surveys', 'SurveysController@index');
+Route::get('/daily-surveys/new', 'SurveysController@newSurvey');
+Route::post('/daily-surveys', 'SurveysController@create');
