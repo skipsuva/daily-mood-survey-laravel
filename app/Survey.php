@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Survey extends Model
 {
-  // need to add user_id
   protected $fillable = [
     'user_id','question_1_response', 'question_2_response', 'question_3_response', 'question_4_response', 'time_taken'
   ];
@@ -29,5 +28,10 @@ class Survey extends Model
   public function questionFourContent()
   {
     return "How pleased are your with your diet today?";
+  }
+
+  public function user()
+  {
+    return $this->belongsTo('App\User');
   }
 }
