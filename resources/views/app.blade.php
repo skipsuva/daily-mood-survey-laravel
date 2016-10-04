@@ -23,5 +23,6 @@
         @endif
     </ul>
     @yield('content')
+    <script src="https://unpkg.com/vue@2.0.1/dist/vue.js"></script>
   </body>
 </html>
