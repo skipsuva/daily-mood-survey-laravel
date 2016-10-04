@@ -10,9 +10,15 @@ use Carbon\Carbon;
 
 class SurveysController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-      $surveys = Survey::latest()->get();
+      $user = \Auth::user();
+      $surveys = $user->surveys->sortBy('time_taken');
 
       return $surveys;
     }
@@ -27,16 +33,20 @@ class SurveysController extends Controller
     public function create()
     {
       $input = Request::all();
-      $input['user_id'] = 1;
+      $input['user_id'] = \Auth::user()->id;
       $input['time_taken'] = Carbon::now();
-      // need to add user_id
-      Survey::create($input);
 
-      return redirect('daily-surveys');
+      $survey = Survey::create($input);
+
+      return redirect()->action(
+        'SurveysController@show', ['id' => $survey->id]
+      );
     }
 
     public function show($id)
     {
-      # code...
+      $survey = Survey::find($id);
+
+      return $survey;
     }
 }
