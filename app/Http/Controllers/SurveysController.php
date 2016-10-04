@@ -20,7 +20,7 @@ class SurveysController extends Controller
       $user = \Auth::user();
       $surveys = $user->surveys->sortBy('time_taken');
 
-      return $surveys;
+      return view('surveys.index', compact('surveys'));
     }
 
     public function newSurvey()
@@ -46,7 +46,10 @@ class SurveysController extends Controller
     public function show($id)
     {
       $survey = Survey::find($id);
-
-      return $survey;
+      if($survey->user != \Auth::user()){
+        return redirect()->action('SurveysController@index');
+      };
+      
+      return view('surveys.show', compact('survey'));
     }
 }
