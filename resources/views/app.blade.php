@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <title>Daily Mood Survey</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.1/css/bulma.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    {{-- <script type="text/babel" src="js/main.js"></script> --}}
   </head>
   <body>
     <ul class="nav navbar-nav navbar-right">
@@ -22,7 +27,8 @@
             </li>
         @endif
     </ul>
+
     @yield('content')
-    <script src="https://unpkg.com/vue@2.0.1/dist/vue.js"></script>
+
   </body>
 </html>
