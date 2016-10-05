@@ -22,6 +22,10 @@ class SurveysController extends Controller
     public function newSurvey()
     {
       $survey = new Survey();
+      $survey['question_1'] = $survey->questionOneContent();
+      $survey['question_2'] = $survey->questionTwoContent();
+      $survey['question_3'] = $survey->questionThreeContent();
+      $survey['question_4'] = $survey->questionFourContent();
 
       // return view('surveys.new_survey', compact('survey'));
       return $survey;
