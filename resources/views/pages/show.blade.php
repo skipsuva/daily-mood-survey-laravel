@@ -2,9 +2,7 @@
 
 @section('content')
   <div id="survey-container">
-
     <h1>Your Recent Survey</h1>
-    {{-- <h3>{{$survey->time_taken}}</h3> --}}
   </div>
 
   <script type="text/babel">
@@ -15,18 +13,22 @@
         };
       },
 
-      componentDidMount: function() {
+      componentWillMount: function() {
+        this._getSurvey();
       },
 
-      // _getSurvey: function() {
-      //   $.get('/tweets/all',function(data) {
-      //     this.setState({ alltweets: data });
-      //   }.bind(this));
-      // },
+      _getSurvey: function() {
+        var url = document.URL.split('/');
+        $.get('/surveys/' + url[url.length - 1] , function(data) {
+          this.setState({ survey: data });
+        }.bind(this));
+      },
+
     render: function() {
       return (
         <div>
           <h1> New Survey Component </h1>
+          {this.state.survey}
         </div>
       );
       }

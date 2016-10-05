@@ -2,34 +2,36 @@
 
 @section('content')
   <div id="surveys-container">
-    <h1>Your Surveys</h1>
-
   </div>
-  {{-- @foreach ($surveys as $survey)
-    <h3>{{$survey->time_taken}}</h3>
-  @endforeach --}}
-
 
   <script type="text/babel">
     var Surveys = React.createClass({
       getInitialState: function() {
         return {
-          surveys: []
+          allSurveys: []
         };
       },
 
       componentDidMount: function() {
+        this._getSurveys();
       },
 
-      // _getSurveys: function() {
-      //   $.get('/tweets/all',function(data) {
-      //     this.setState({ alltweets: data });
-      //   }.bind(this));
-      // },
+      _getSurveys: function() {
+        $.get('/surveys',function(data) {
+          this.setState({ allSurveys: data });
+        }.bind(this));
+      },
     render: function() {
+      var handleSurveys = this.state.allSurveys.map(function(survey) {
+        return <li> {survey.time_taken} </li>
+      });
       return (
         <div>
           <h1> Survey Index Component </h1>
+          <h1>Your Surveys</h1>
+          <ul>
+           {handleSurveys}
+          </ul>
         </div>
       );
       }

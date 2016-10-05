@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-  <div id="new survey-container">
+  <div id="new-survey-container">
     <h1>New Survey</h1>
     <h2>On a scale of 1 to 5...</h2>
 
@@ -86,22 +86,22 @@
     var NewSurvey = React.createClass({
       getInitialState: function() {
         return {
-          survey: []
+          // responses: []
         };
       },
 
       componentDidMount: function() {
       },
 
-      // _getSurvey: function() {
-      //   $.get('/tweets/all',function(data) {
-      //     this.setState({ alltweets: data });
-      //   }.bind(this));
-      // },
     render: function() {
       return (
         <div>
-          <h1> New Survey Component </h1>
+          <h1> form </h1>
+          <input type="radio" name="question_1_response" value="1" /> 1
+          <input type="radio" name="question_1_response" value="2" /> 2
+          <input type="radio" name="question_1_response" value="3" /> 3
+          <input type="radio" name="question_1_response" value="4" /> 4
+          <input type="radio" name="question_1_response" value="5" /> 5
         </div>
       );
       }
