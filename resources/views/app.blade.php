@@ -12,23 +12,47 @@
 
   </head>
   <body>
-    <ul class="nav navbar-nav navbar-right">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item is-brand" href="#">
+          Daily Mood Survey
+        </a>
+      </div>
+
+      <div class="nav-center">
+        <a class="nav-item" href="/daily-surveys">
+          Home
+        </a>
+        <a class="nav-item" href="/daily-surveys/new">
+          Take Survey
+        </a>
+      </div>
+
+      <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+
+      <div class="nav-right nav-menu">
         @if (Auth::guest())
-            <li><a href="{{ url('/login') }}">Login</a></li>
-            <li><a href="{{ url('/register') }}">Register</a></li>
+          <a class="nav-item" href="{{ url('/login') }}">
+            Login
+          </a>
+          <a class="nav-item" href="{{ url('/register') }}">
+            Join
+          </a>
         @else
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                    {{ Auth::user()->name }} <span class="caret"></span>
-                </a>
-
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                </ul>
-            </li>
+          <p class="nav-item">
+            Welcome {{ Auth::user()->name }}
+          </p>
+          <a class="nav-item" href="{{ url('/logout') }}">
+            Log Out
+          </a>
         @endif
-    </ul>
-
+      </div>
+    </nav>
+    
     @yield('content')
 
   </body>
