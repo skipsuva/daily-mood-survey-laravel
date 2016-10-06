@@ -24,12 +24,28 @@
     render: function() {
       return (
         <div>
-          <h1>Your Averages</h1>
-          <ul>
-           <SurveyGraph
-            survey={this.state.allSurveyData}
-           />
-          </ul>
+          <div className="columns">
+            <div className="column is-half is-offset-one-third">
+              <div className="card">
+                <div className="card-image">
+                  <SurveyGraph
+                   survey={this.state.allSurveyData}
+                  />
+                </div>
+                <div className="card-content">
+                  <div className="media">
+                    <div className="media-content">
+                      <p className="title is-5">Your Averages</p>
+                    </div>
+                  </div>
+
+                  <div className="content">
+                    The more daily surveys you take, the more insightful these averages will become.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       );
       }
@@ -86,7 +102,9 @@
       render: function() {
         return (
           <div>
-            <canvas id={"survey-chart-" + this.props.survey.id} width="400" height="400"></canvas>
+            <figure className="image is-4by4">
+              <canvas id={"survey-chart-" + this.props.survey.id} width="275" height="275"></canvas>
+            </figure>
           </div>
         );
       }

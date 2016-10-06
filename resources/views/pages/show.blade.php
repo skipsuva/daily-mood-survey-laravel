@@ -27,11 +27,24 @@
     render: function() {
       return (
         <div>
-          {this.state.survey.time_taken}
-          <SurveyGraph
-            survey={this.state.survey}
-          />
-
+          <div className="columns">
+            <div className="column is-half is-offset-one-third">
+              <div className="card">
+                <div className="card-image">
+                  <SurveyGraph
+                   survey={this.state.survey}
+                  />
+                </div>
+                <div className="card-content">
+                  <div className="media">
+                    <div className="media-content">
+                      <p className="title is-5">Survey: {this.state.survey.time_taken}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       );
       }
@@ -89,7 +102,9 @@
       render: function() {
         return (
           <div>
-            <canvas id="survey-chart" width="400" height="400"></canvas>
+            <figure className="image is-4by4">
+              <canvas id="survey-chart" width="275" height="275"></canvas>
+            </figure>
           </div>
         );
       }

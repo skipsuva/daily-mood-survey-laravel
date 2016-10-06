@@ -12,7 +12,7 @@
 
   </head>
   <body>
-    <nav class="nav">
+    <nav class="nav has-shadow">
       <div class="nav-left">
         <a class="nav-item is-brand" href="#">
           Daily Mood Survey
@@ -28,11 +28,13 @@
         </a>
       </div>
 
-      <span class="nav-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </span>
+      <a href="{{ url('/logout') }}">
+        <span class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </a>
 
       <div class="nav-right nav-menu">
         @if (Auth::guest())
@@ -52,8 +54,12 @@
         @endif
       </div>
     </nav>
-    
-    @yield('content')
+
+    <div class="section">
+      <div class="container">
+        @yield('content')
+      </div>
+    </div>
 
   </body>
 </html>
