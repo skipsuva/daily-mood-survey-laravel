@@ -87,7 +87,6 @@
       },
 
       render: function() {
-
         return (
           <div>
             <canvas id="survey-chart" width="400" height="400"></canvas>

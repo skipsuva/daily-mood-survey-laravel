@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use DB;
 
 class User extends Authenticatable
 {
@@ -23,6 +24,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getSurveyAverages()
+    {
+      $averages = $this->surveys()->select(
+        DB::raw(
+          'avg(question_1_response) question_1_response,
+          avg(question_2_response) question_2_response,
+          avg(question_3_response) question_3_response,
+          avg(question_4_response) question_4_response'
+        ))->first();
+      return $averages;
+    }
 
     public function surveys()
     {

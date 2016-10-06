@@ -13,10 +13,9 @@ class SurveysController extends Controller
     public function index()
     {
       $user = \Auth::user();
-      $surveys = $user->surveys->sortBy('time_taken');
+      $surveyAverages = $user->getSurveyAverages();
 
-      // return view('surveys.index', compact('surveys'));
-      return $surveys;
+      return $surveyAverages;
     }
 
     public function newSurvey()
@@ -27,7 +26,6 @@ class SurveysController extends Controller
       $survey['question_3'] = $survey->questionThreeContent();
       $survey['question_4'] = $survey->questionFourContent();
 
-      // return view('surveys.new_survey', compact('survey'));
       return $survey;
     }
 
@@ -45,11 +43,7 @@ class SurveysController extends Controller
     public function show($id)
     {
       $survey = Survey::find($id);
-      // if($survey->user != \Auth::user()){
-      //   return redirect()->action('SurveysController@index');
-      // };
 
-      // return view('surveys.show', compact('survey'));
       return $survey;
     }
 }
