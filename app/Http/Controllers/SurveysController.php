@@ -39,9 +39,7 @@ class SurveysController extends Controller
 
       $survey = Survey::create($input);
 
-      return redirect()->action(
-        'SurveysController@show', ['id' => $survey->id]
-      );
+      return $survey;
     }
 
     public function show($id)

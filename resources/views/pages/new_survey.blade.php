@@ -34,20 +34,20 @@
       },
 
       handleSurveySubmit: function() {
-        // $.post('/surveys', function(data) {
-        //   // redirect
-        //   debugger;
-        // }.bind(this));
-        $.ajax({
-          url: '/surveys',
-          method: 'POST',
-          data: {
+        $.post('/surveys',
+          {
             question_1_response: this.state.question_1_response,
             question_2_response: this.state.question_2_response,
             question_3_response: this.state.question_3_response,
             question_4_response: this.state.question_4_response
-          }
-        });
+          })
+          .done(function(data) {
+            var loc = window.location;
+            window.location = "/daily-surveys/" + data.id;
+          })
+          .fail(function(e) {
+            // handle error thru state
+          });
       },
 
       render: function() {

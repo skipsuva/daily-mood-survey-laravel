@@ -21,7 +21,7 @@ Route::get('/daily-surveys', 'PagesController@index');
 Route::get('/daily-surveys/new', 'PagesController@newSurvey');
 Route::get('/daily-surveys/{id}','PagesController@show');
 
+Route::post('/surveys', 'SurveysController@create');
 Route::get('/surveys', 'SurveysController@index');
 Route::get('/surveys/new', 'SurveysController@newSurvey');
-Route::post('/surveys', 'SurveysController@create');
 Route::get('/surveys/{id}','SurveysController@show');
