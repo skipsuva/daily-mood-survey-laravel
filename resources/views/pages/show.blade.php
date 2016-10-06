@@ -27,7 +27,6 @@
     render: function() {
       return (
         <div>
-          <h1> New Survey Component </h1>
           {this.state.survey.time_taken}
           <SurveyGraph
             survey={this.state.survey}
@@ -40,6 +39,9 @@
 
     var SurveyGraph = React.createClass({
       componentDidUpdate: function() {
+        Chart.defaults.global.legend.display = false;
+        Chart.defaults.global.tooltips.enabled = false;
+
         var survey = this.props.survey;
         var ctx = document.getElementById("survey-chart");
         var myChart = new Chart(ctx, {
@@ -49,7 +51,9 @@
               scales: {
                   yAxes: [{
                       ticks: {
-                          beginAtZero:true
+                          beginAtZero:true,
+                          max: 5,
+                          maxTicksLimit: 5
                       }
                   }]
               }
