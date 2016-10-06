@@ -1,17 +1,16 @@
 @extends('app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Welcome</div>
-
-                <div class="panel-body">
-                    Your Application's Landing Page.
-                </div>
-            </div>
-        </div>
+  <section class="hero is-large">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title is-1">
+          Welcome to Daily Mood Survey
+        </h1>
+        <h2 class="subtitle is-3">
+          Log in or register
+        </h2>
+      </div>
     </div>
-</div>
+  </section>
 @endsection
