@@ -62,13 +62,19 @@
           />
         }.bind(this));
         if(this.state.question_1_response && this.state.question_2_response && this.state.question_3_response && this.state.question_4_response){
-          submitButton = <div className='button' onClick={this.handleSurveySubmit}> Submit </div>;
+          submitButton = <div className='button is-large is-info' onClick={this.handleSurveySubmit}> Submit </div>;
         }
 
         return (
           <div>
-            {surveyItems}
-            {submitButton}
+            <div className="columns">
+              <div className="column is-half is-offset-one-quarter">
+                  {surveyItems}
+                <section className="section">
+                    {submitButton}
+                </section>
+              </div>
+            </div>
           </div>
         );
         }
@@ -93,12 +99,37 @@
         var questionText = "question_" + this.props.question_num;
         return(
           <div>
-            {this.props.survey[questionText]}
-            <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="1" /> 1
-            <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="2" /> 2
-            <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="3" /> 3
-            <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="4" /> 4
-            <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="5" /> 5
+            <section className="section">
+              <div className="box notification">
+                <p className="control">
+                  <label className="label title is-3">
+                    {this.props.survey[questionText]}
+                  </label>
+                </p>
+                <p className="control">
+                  <label className="radio">
+                    <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="1" />
+                    1
+                  </label>
+                  <label className="radio">
+                    <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="2" />
+                    2
+                  </label>
+                  <label className="radio">
+                    <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="3" />
+                    3
+                  </label>
+                  <label className="radio">
+                    <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="4" />
+                    4
+                  </label>
+                  <label className="radio">
+                    <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="5" />
+                    5
+                  </label>
+                </p>
+              </div>
+            </section>
           </div>
         );
       }
