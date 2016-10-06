@@ -24,27 +24,24 @@
     render: function() {
       return (
         <div>
-          <div className="columns">
-            <div className="column is-half is-offset-one-third">
-              <div className="card">
-                <div className="card-image">
+          <div className="row">
+            <div className="col-md-4" />
+            <div className="col-md-4 text-center">
+              <div className="panel panel-default">
+                <div className="panel-heading">
+                  <div className="panel-title">
+                    Your Averages
+                  </div>
+                </div>
+                <div className="panel-body text-center">
                   <SurveyGraph
                    survey={this.state.allSurveyData}
                   />
-                </div>
-                <div className="card-content">
-                  <div className="media">
-                    <div className="media-content">
-                      <p className="title is-5">Your Averages</p>
-                    </div>
-                  </div>
-
-                  <div className="content">
-                    The more daily surveys you take, the more insightful these averages will become.
-                  </div>
+                  <p>The more daily surveys you take, the more insightful these averages will become.</p>
                 </div>
               </div>
             </div>
+            <div className="col-md-4" />
           </div>
         </div>
       );
@@ -57,7 +54,7 @@
         Chart.defaults.global.tooltips.enabled = false;
 
         var survey = this.props.survey;
-        var ctx = document.getElementById("survey-chart-" + survey.id);
+        var ctx = document.getElementById("survey-chart-average");
         var myChart = new Chart(ctx, {
           type: 'bar',
           options: {
@@ -102,9 +99,7 @@
       render: function() {
         return (
           <div>
-            <figure className="image is-4by4">
-              <canvas id={"survey-chart-" + this.props.survey.id} width="275" height="275"></canvas>
-            </figure>
+            <canvas className="img-responsive center-block" id={"survey-chart-average"} width="320" height="275"></canvas>
           </div>
         );
       }

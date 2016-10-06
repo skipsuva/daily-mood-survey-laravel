@@ -27,23 +27,23 @@
     render: function() {
       return (
         <div>
-          <div className="columns">
-            <div className="column is-half is-offset-one-third">
-              <div className="card">
-                <div className="card-image">
+          <div className="row">
+            <div className="col-md-4" />
+            <div className="col-md-4 text-center">
+              <div className="panel panel-default">
+                <div className="panel-heading">
+                  <div className="panel-title">
+                    Survey for: {this.state.survey.time_taken}
+                  </div>
+                </div>
+                <div className="panel-body text-center">
                   <SurveyGraph
                    survey={this.state.survey}
                   />
                 </div>
-                <div className="card-content">
-                  <div className="media">
-                    <div className="media-content">
-                      <p className="title is-5">Survey: {this.state.survey.time_taken}</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
+            <div className="col-md-4" />
           </div>
         </div>
       );
@@ -102,9 +102,7 @@
       render: function() {
         return (
           <div>
-            <figure className="image is-4by4">
-              <canvas id="survey-chart" width="275" height="275"></canvas>
-            </figure>
+            <canvas className="img-responsive center-block" id="survey-chart" width="320" height="275"></canvas>
           </div>
         );
       }

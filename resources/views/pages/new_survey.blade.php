@@ -2,8 +2,6 @@
 
 @section('content')
   <div id="new-survey-container">
-    <h1>New Survey</h1>
-    <h2>On a scale of 1 to 5...</h2>
   </div>
 
 
@@ -62,18 +60,18 @@
           />
         }.bind(this));
         if(this.state.question_1_response && this.state.question_2_response && this.state.question_3_response && this.state.question_4_response){
-          submitButton = <div className='button is-large is-info' onClick={this.handleSurveySubmit}> Submit </div>;
+          submitButton = <button className='btn btn-primary btn-lg btn-block' onClick={this.handleSurveySubmit}> Submit </button>;
         }
 
         return (
           <div>
-            <div className="columns">
-              <div className="column is-half is-offset-one-quarter">
-                  {surveyItems}
-                <section className="section">
-                    {submitButton}
-                </section>
+            {surveyItems}
+            <div className="row">
+              <div className="col-md-4" />
+              <div className="col-md-4 text-center">
+                {submitButton}
               </div>
+              <div className="col-md-4" />
             </div>
           </div>
         );
@@ -99,37 +97,38 @@
         var questionText = "question_" + this.props.question_num;
         return(
           <div>
-            <section className="section">
-              <div className="box notification">
-                <p className="control">
-                  <label className="label title is-3">
-                    {this.props.survey[questionText]}
-                  </label>
-                </p>
-                <p className="control">
-                  <label className="radio">
-                    <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="1" />
-                    1
-                  </label>
-                  <label className="radio">
-                    <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="2" />
-                    2
-                  </label>
-                  <label className="radio">
-                    <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="3" />
-                    3
-                  </label>
-                  <label className="radio">
-                    <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="4" />
-                    4
-                  </label>
-                  <label className="radio">
-                    <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="5" />
-                    5
-                  </label>
-                </p>
+            <div className="row">
+              <div className="col-md-4" />
+              <div className="col-md-4 text-center">
+                <div className="panel panel-default">
+                  <div className="panel-heading">
+                    <div className="panel-title">
+                      {this.props.survey[questionText]}
+                    </div>
+                  </div>
+                  <div className="panel-body">
+                    <div className="control-group">
+                      <label className="radio-inline">
+                        <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="1" /> 1
+                      </label>
+                      <label className="radio-inline">
+                        <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="2" /> 2
+                      </label>
+                      <label className="radio-inline">
+                        <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="3" /> 3
+                      </label>
+                      <label className="radio-inline">
+                        <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="4" /> 4
+                      </label>
+                      <label className="radio-inline">
+                        <input type="radio" name={"question_"+ this.props.question_num +"_response"} onClick={this.radioClick} value="5" /> 5
+                      </label>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </section>
+              <div className="col-md-4" />
+            </div>
           </div>
         );
       }
