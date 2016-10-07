@@ -10,11 +10,7 @@ use Faker\Factory as Faker;
 
 class SurveyTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
+
     public function testHasQuestionContents()
     {
         $survey = new Survey;

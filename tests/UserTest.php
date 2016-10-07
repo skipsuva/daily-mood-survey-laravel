@@ -10,11 +10,7 @@ use Faker\Factory as Faker;
 
 class UserTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
+  
     public function testUserHasSurvey()
     {
         $faker = Faker::create();
