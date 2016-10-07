@@ -13,7 +13,7 @@ After cloning/forking this repo:
 
 Run `php -S localhost:8888 -t public` in the command line, and then visit `localhost:8888`.
 
-Additionally, you can visit `http://daily-mood-survey.herokuapp.com/` and see it in action.
+Additionally, you can visit [http://daily-mood-survey.herokuapp.com/](http://daily-mood-survey.herokuapp.com/) to see it in action.
 
 ## Tests
 
