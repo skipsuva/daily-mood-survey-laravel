@@ -6,6 +6,8 @@
 
 
   <script type="text/babel">
+    // Parent New Survey component responsible for fetching object from endpoint
+    // as well as posting completed form
     var NewSurvey = React.createClass({
       getInitialState: function() {
         return {
@@ -42,9 +44,6 @@
           .done(function(data) {
             var loc = window.location;
             window.location = "/daily-surveys/" + data.id;
-          })
-          .fail(function(e) {
-            // handle error thru state
           });
       },
 
@@ -78,13 +77,11 @@
         }
     });
 
+    // New Survey Question component programmatically generated with question text
     var SurveyQuestion = React.createClass({
       getInitialState: function() {
         return {
         };
-      },
-
-      componentWillMount: function() {
       },
 
       radioClick: function(e) {

@@ -5,6 +5,7 @@
   </div>
 
   <script type="text/babel">
+    // Parent Survey component responsible for fetching object from endpoint
     var Surveys = React.createClass({
       getInitialState: function() {
         return {
@@ -13,10 +14,10 @@
       },
 
       componentDidMount: function() {
-        this._getSurveys();
+        this._getSurveyData();
       },
 
-      _getSurveys: function() {
+      _getSurveyData: function() {
         $.get('/surveys',function(data) {
           this.setState({ allSurveyData: data });
         }.bind(this));
@@ -48,6 +49,7 @@
       }
     });
 
+    // Survey Graph component responsible for rendering chart
     var SurveyGraph = React.createClass({
       componentDidUpdate: function() {
         Chart.defaults.global.legend.display = false;

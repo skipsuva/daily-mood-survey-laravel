@@ -10,6 +10,10 @@ use Carbon\Carbon;
 
 class SurveysController extends Controller
 {
+    /**
+     * Retreives the current user's average survey responses as index page
+     *
+     */
     public function index()
     {
       $user = \Auth::user();
@@ -18,6 +22,10 @@ class SurveysController extends Controller
       return $surveyAverages;
     }
 
+    /**
+     * Instantiates a new survey to programmatically pass survey questions to Javascript
+     *
+     */
     public function newSurvey()
     {
       $survey = new Survey();
@@ -29,6 +37,10 @@ class SurveysController extends Controller
       return $survey;
     }
 
+    /**
+     * Takes form input to create new survey for current user
+     *
+     */
     public function create()
     {
       $input = Request::all();
@@ -40,6 +52,10 @@ class SurveysController extends Controller
       return $survey;
     }
 
+    /**
+     * Retreives the current user's survey based on id
+     *
+     */
     public function show($id)
     {
       $survey = Survey::find($id);

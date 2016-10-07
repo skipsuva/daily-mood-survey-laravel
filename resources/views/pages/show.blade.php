@@ -2,10 +2,10 @@
 
 @section('content')
   <div id="survey-container">
-    <h1>Your Recent Survey</h1>
   </div>
 
   <script type="text/babel">
+    // Parent Survey component responsible for fetching object from endpoint
     var Survey = React.createClass({
       getInitialState: function() {
         return {
@@ -50,6 +50,7 @@
       }
     });
 
+    // Survey Graph component responsible for rendering chart
     var SurveyGraph = React.createClass({
       componentDidUpdate: function() {
         Chart.defaults.global.legend.display = false;

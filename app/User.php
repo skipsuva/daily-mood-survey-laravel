@@ -25,6 +25,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Returns the average question responses of a user's surveys
+     *
+     * @return json
+     */
     public function getSurveyAverages()
     {
       $averages = $this->surveys()->select(
@@ -37,6 +42,11 @@ class User extends Authenticatable
       return $averages;
     }
 
+    /**
+     * Returns the surveys belonging to user
+     *
+     * @return collection
+     */
     public function surveys()
     {
       return $this->hasMany('App\Survey');
